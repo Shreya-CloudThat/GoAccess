@@ -1,0 +1,81 @@
+/* styles.css */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slideshow-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  animation: slideIn 0.5s ease-in-out;
+  padding: 2rem;
+  opacity: 0; /* Initially hide the slide */
+}
+
+.slide.active {
+  transform: translateX(0);
+  opacity: 1; /* Show the active slide */
+}
+
+.slide.hidden {
+  transform: translateX(-100%);
+  opacity: 0; /* Hide the hidden slide */
+}
+
+
+
+
+
+
+
+
+/* Styles for the tooltip container */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Styles for the tooltip content */
+.tooltip-content {
+  position: absolute;
+  top: 50%;
+  left: 100%; /* Position to the right of the text */
+  transform: translateY(-50%);
+  width: 200px; /* Set width as needed */
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+/* Tooltip arrow pointing to the text */
+.tooltip-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* Position to the left of the arrow */
+  margin-top: -5px; /* Adjust to vertically center the arrow */
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #f9f9f9;
+}
+
+/* Show tooltip content on hover */
+.tooltip-container:hover .tooltip-content {
+  display: block;
+}
